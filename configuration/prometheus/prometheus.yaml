@@ -1,0 +1,21 @@
+global:
+  # How frequently to scrape targets
+  scrape_interval: 5s
+  # How frequently to evaluate rules
+  evaluation_interval: 5s
+
+# Rules and alerts are read from the specified file(s)
+rule_files:
+  - rules.yml
+
+
+scrape_configs:
+  - job_name: 'spring-simple-client'
+    metrics_path: '/metrics'
+    static_configs:
+    - targets: ['host.docker.internal:9061']
+  - job_name: 'spring-boot-prometheus-client'
+    scrape_interval: 5s
+    metrics_path: '/actuator/prometheus'
+    static_configs:
+      - targets: [ 'host.docker.internal:8080' ]

@@ -1,0 +1,5 @@
+https://www.innoq.com/en/blog/prometheus-counters/
+
+https://github.com/prometheus/client_java
+
+https://acloudguru.com/hands-on-labs/using-the-java-client-library-for-prometheus

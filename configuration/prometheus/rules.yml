@@ -1,0 +1,9 @@
+groups:
+  - name: APM-Test
+    rules:
+      - alert: High Latency for service order-services
+        expr: (rate(default_latency_sum{span_kind=~"SPAN_KIND_SERVER",http_method=~"GET|POST|PUT|DELETE", http_route='/v1/order/{orderId}'}[1m])/rate(default_latency_count{span_kind=~"SPAN_KIND_SERVER",http_method=~"GET|POST|PUT|DELETE", http_route='/v1/order/{orderId}'}[1m])) > 5
+        for: 5m
+        annotations:
+          title: High Latency for service order-services
+          description: High Latency for service order-services
